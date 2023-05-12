@@ -6,8 +6,8 @@ select#opcoes{font-size:1.5vw;color: black;outline:none}
 option{color:black}
 
 #body{display:flex;justify-content: center;}
-#card{margin: 4vw 0vw 4vw 0vw;width: 69vw;}
-#title{background-color: #800080;display:flex;border: 1vw solid #4f024f;}
+#card{margin: 4vw 0vw 4vw 0vw;width: 69vw;border: 1vw solid #4f024f;background-color: purple;}
+#title{display:flex;}
 
 div#açaí{width: 100%;padding: 1vw;}
 div#logo{display: flex;font-size: 5vw;align-items: center;position: relative;right: 6vw;}
@@ -18,9 +18,9 @@ strong#açaí{color:white}
 strong#pocket{color:yellow;margin: 0 0 0 1.40vw;}
 img#sustentavel{width: 4vw;position: relative;padding: 1vw;}
 
-div#algo{display: flex;background-color: #800080;border-bottom: 1vw solid #4f024f;border-left: 1vw solid #4f024f;border-right: 1vw solid #4f024f;flex-wrap: wrap;justify-content: center;}
+div#algo{display: flex;border-top: 1vw solid #4f024f;flex-wrap: wrap;justify-content: center;flex-direction: column;}
 p#topico{margin: 1vw 0vw 0vw 0vw;font-size: 2vw;text-align: center;}
 p#conteudo{margin: 1.5vw;font-size: 1.5vw;text-align:center;}
 
-.background-animation {margin:0;background-size:10vw;top: 0;left: 0;background-image: url('fundo_açaí.jpeg');animation: background-move 50s linear infinite;}
+.background-animation {margin:0;background-size:10vw;top: 0;left: 0;background-image: url('fundo_açaí.jpeg');animation: background-move 49s linear infinite;}
     @keyframes background-move {from {background-position: 0 0;} to {background-position: var(x) var(y);}}
