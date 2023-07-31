@@ -9,7 +9,7 @@
     // Função para obter um vídeo aleatório em alta
     function getVideoAleatorioEmAlta() {
       const chaveAPI = "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4"; // Substitua "SUA_CHAVE_DE_API" pela sua chave de API do YouTube
-      const maxResultado = 50; // Número máximo de vídeos em alta a serem retornados
+      const maxResultado = 1000; // Número máximo de vídeos em alta a serem retornados
 
       // Construir a URL para a busca de vídeos em alta
       const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&regionCode=BR&key=${chaveAPI}&maxResults=${maxResultado}`;
