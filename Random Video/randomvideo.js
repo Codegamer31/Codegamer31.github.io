@@ -1,3 +1,24 @@
+window.onload = function() {
+  verificarCotasDisponiveis();
+};
+function verificarCotasDisponiveis() {
+  const chaveAPI = "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4";
+  const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&part=id&maxResults=1`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.error && data.error.errors.length > 0) {
+        const erro = data.error.errors[0];
+        if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
+          document.getElementById("buscarButton1").style.background = 'gray';
+          document.getElementById("buscarButton2").style.background = 'gray';
+        }
+      }
+    })
+    .catch(error => console.log(error));
+}
+
 function gerarTermoAleatorio() {
   const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789     ";
   const comprimentoTermo = Math.floor(Math.random() * 20) + 1;
@@ -15,11 +36,15 @@ function buscarVideoAleatorio() {
   const chaveAPI = "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4";
   const termoPesquisa = document.getElementById("termo").value.trim();
   const maxResultado = 10000;
+  if (document.getElementById("buscarButton1").style.background == 'gray') {
+    alert('COTAS EXCEDIDAS!');
+    document.getElementById("termo").value = '';
+    return;
+  }
   if (termoPesquisa === "") {
     alert("Por favor, digite um termo de pesquisa.");
     return;
   }
-
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(termoPesquisa)}&key=${chaveAPI}&maxResults=${maxResultado}`;
   fetch(url)
     .then(response => response.json())
@@ -33,28 +58,6 @@ function buscarVideoAleatorio() {
       const videoID = data.items[indiceAleatorio].id.videoId;
 
       window.location.href = `https://www.youtube.com/watch?v=${videoID}`;
-    })
-    .catch(error => console.log(alert(TypeError(403))));
-}
-window.onload = function() {
-  verificarCotasDisponiveis();
-};
-function verificarCotasDisponiveis() {
-  const chaveAPI = "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4"; // Sua chave de API
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&part=id&maxResults=1`;
-
-  // Realizar a requisição à API do YouTube
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data.error && data.error.errors.length > 0) {
-        const erro = data.error.errors[0];
-        if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
-          // Desabilitar o botão de busca
-          document.getElementById("buscarButton1").disabled = true;
-          document.getElementById("buscarButton2").disabled = true;
-        }
-      }
     })
     .catch(error => console.log(error));
 }
