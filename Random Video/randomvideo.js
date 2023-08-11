@@ -1,6 +1,6 @@
   function gerarTermoAleatorio() {
-    const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789   ";
-    const comprimentoTermo = Math.floor(Math.random() * 10) + 1;
+    const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789     ";
+    const comprimentoTermo = Math.floor(Math.random() * 20) + 1;
     let termoGerado = "";
 
     for (let i = 0; i < comprimentoTermo; i++) {
