@@ -11,8 +11,12 @@ function verificarCotasDisponiveis() {
       if (data.error && data.error.errors.length > 0) {
         const erro = data.error.errors[0];
         if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
-          document.getElementById("buscarButton1").style.background = 'gray';
-          document.getElementById("buscarButton2").style.background = 'gray';
+          document.getElementById("buscarButton1").style.backgroundColor = 'rgba(239, 239, 239, 0.3)';
+          document.getElementById("buscarButton2").style.backgroundColor = 'rgba(239, 239, 239, 0.3)';
+          document.getElementById("buscarButton1").style.color = 'rgba(16, 16, 16, 0.3)';
+          document.getElementById("buscarButton2").style.color = 'rgba(16, 16, 16, 0.3)';
+          document.getElementById("buscarButton1").style.borderColor = 'rgba(118, 118, 118, 0.3)';
+          document.getElementById("buscarButton2").style.borderColor = 'rgba(118, 118, 118, 0.3)';
         }
       }
     })
@@ -36,7 +40,7 @@ function buscarVideoAleatorio() {
   const chaveAPI = "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4";
   const termoPesquisa = document.getElementById("termo").value.trim();
   const maxResultado = 10000;
-  if (document.getElementById("buscarButton1").style.background == 'gray') {
+  if (document.getElementById("buscarButton1").style.backgroundColor == 'rgba(239, 239, 239, 0.3)') {
     alert('COTAS EXCEDIDAS!');
     document.getElementById("termo").value = '';
     return;
