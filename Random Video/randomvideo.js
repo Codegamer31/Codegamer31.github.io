@@ -38,15 +38,15 @@ function selecionarChaveAPI() {
   verificarCotasDisponiveis()
 }
 
+
 function gerarTermoAleatorio() {
   const caracteres = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
   const comprimentoTermo = Math.floor(Math.random() * 5) + 1;
-  const termoPesquisa = document.getElementById("termo").value.trim();
   let termoGerado = "";
 
   for (let i = 0; i < comprimentoTermo; i++) {
     const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
-    termoPesquisa += ' ' += termoGerado += caracteres.charAt(indiceAleatorio);
+    termoGerado += caracteres.charAt(indiceAleatorio);
   }
   termoPesquisa = termoGerado;
   buscarVideoAleatorio0();
