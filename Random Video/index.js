@@ -56,7 +56,7 @@ function FazerPesquisa() {
         alert('Escolha Um Site Para Pesquisar!');
         return;
     }
-    const termoPesquisa = document.getElementById('termoPesquisa').value;
+    const termoPesquisa = document.getElementById('termo').value;
     if (!termoPesquisa) {
         alert('Por favor, digite um termo de pesquisa.');
     return;
