@@ -1,36 +1,35 @@
-var Cotas = false
+var Cotas = true
+var resultado = ''
 var ChaveApi = ''
+const cx = 'c735e8871db09406d'
 
 const chavesApi = [
     "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4",
     "AIzaSyCaHAb4Ekr8hCJ-NfNM6FsM3_reVZNp3J4",
     "AIzaSyA2wasPNB7czVYW3SZmhw1SH0O_mx9PctE",
     "AIzaSyAZJomfHzbr-icHe-BSqdUE8CoHDr0uPes",
-    "AIzaSyD4NNoIdduPCmWetBl6DC1Y_RMutDF7b54"
+    "AIzaSyD4NNoIdduPCmWetBl6DC1Y_RMutDF7b54",
+    "AIzaSyBsARrhcVhd0XYlERE8MjQEwckRIvFYW4w"
 ];
-window.onload = function() {
-    SelecionarChave();
-}
 function SelecionarChave() {
     const indiceAleatorio = Math.floor(Math.random() * chavesApi.length);
     ChecarCotas();
     ChaveApi = chavesApi[indiceAleatorio];
 }
-function  PegarCX() {
-    var select = document.getElementById("Sites");
-    var opcaoSelecionada = select.options[select.selectedIndex].value;
-    cx = opcaoSelecionada;    
-}
 function ChecarCotas() {
     termoPesquisa = 'google'
-    const quotaUrl = `https://www.googleapis.com/customsearch/v1?key=${ChaveApi}&cx=678bb9bcf15d64a87&q=${encodeURIComponent(termoPesquisa)}&fields=queries(request(totalResults))`;
+    const quotaUrl = `https://www.googleapis.com/customsearch/v1?key=${ChaveApi}&cx=${cx}&q=${encodeURIComponent(termoPesquisa)}&fields=queries(request(totalResults))`;
     fetch(quotaUrl)
       .then(response => response.json())
       .then(data => {
-        if (data.queries && data.queries.request && data.queries.request[0].totalResults > 0) {
-            Cotas = true
-        } else {
-            Cotas = false
+        if (data.error && data.error.errors.length > 0) {
+            const erro = data.error.errors[0];
+            if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
+                Cotas = false
+                selecionarChaveAPI()
+            } else {
+                Cotas = true
+            }
         }
       })
       .catch(error => {console.error('Ocorreu um erro:', error)});
@@ -46,19 +45,13 @@ function GerarTermo(comprimento = 5) {
     FazerPesquisa()
 }
 function FazerPesquisa() {
-    PegarCX()
+    SelecionarChave()
     if (Cotas == false) {
-        alert(`${ChaveApi} | COTA EXCEDIDA! , TENTE NOVAMENTE!`);
-        SelecionarChave()
+        alert(`COTA EXCEDIDA! , TENTE NOVAMENTE!`);
         return;
     }
-    if (cx == ' ') {
-        alert('Escolha Um Site Para Pesquisar!');
-        return;
-    }
-    
-    if (!termoPesquisa) {
-        termoPesquisa = document.getElementById('termo').value;
+    termoPesquisa = document.getElementById('termo').value 
+    if (termoPesquisa == '' && termoPesquisa !== resultado) {
         alert('Por favor, digite um termo de pesquisa.');
     return;
     }
