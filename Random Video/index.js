@@ -19,7 +19,8 @@ function SelecionarChave() {
 function  PegarCX() {
     var select = document.getElementById("Sites");
     var opcaoSelecionada = select.options[select.selectedIndex].value;
-    cx = opcaoSelecionada;    
+    cx = '678bb9bcf15d64a87'
+    site = opcaoSelecionada
 }
 function ChecarCotas() {
     termoPesquisa = 'google'
@@ -56,11 +57,12 @@ function FazerPesquisa() {
         alert('Escolha Um Site Para Pesquisar!');
         return;
     }
-    const termoPesquisa = document.getElementById('termo').value;
     if (!termoPesquisa) {
+        termoPesquisa = document.getElementById('termo').value;
         alert('Por favor, digite um termo de pesquisa.');
     return;
     }
+    termoPesquisa += site
     const urlApi = `https://www.googleapis.com/customsearch/v1?key=${ChaveApi}&cx=${cx}&q=${encodeURIComponent(termoPesquisa)}`;
     window.location.href = urlApi;       
 }
