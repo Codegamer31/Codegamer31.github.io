@@ -19,8 +19,7 @@ function SelecionarChave() {
 function  PegarCX() {
     var select = document.getElementById("Sites");
     var opcaoSelecionada = select.options[select.selectedIndex].value;
-    cx = '678bb9bcf15d64a87'
-    site = opcaoSelecionada
+    cx = opcaoSelecionada;    
 }
 function ChecarCotas() {
     termoPesquisa = 'google'
@@ -57,12 +56,27 @@ function FazerPesquisa() {
         alert('Escolha Um Site Para Pesquisar!');
         return;
     }
+    const termoPesquisa = document.getElementById('termo').value;
     if (!termoPesquisa) {
-        termoPesquisa = document.getElementById('termo').value;
         alert('Por favor, digite um termo de pesquisa.');
     return;
     }
-    termoPesquisa += site
     const urlApi = `https://www.googleapis.com/customsearch/v1?key=${ChaveApi}&cx=${cx}&q=${encodeURIComponent(termoPesquisa)}`;
-    window.location.href = urlApi;       
+    fetch(urlApi)
+    .then(response => response.json())
+    .then(data => {
+        const items = data.items;
+        if (items && items.length > 0) {
+            const randomIndex = Math.floor(Math.random() * items.length);
+            const randomResult = items[randomIndex];
+            const randomResultUrl = randomResult.link;
+            window.location.href = randomResultUrl;
+        } else {
+            alert('Nenhum resultado encontrado.');
+        }
+    })
+    .catch(error => {
+        console.error('Erro ao buscar resultados:', error);
+        alert('Ocorreu um erro ao buscar resultados.');
+    });
 }
