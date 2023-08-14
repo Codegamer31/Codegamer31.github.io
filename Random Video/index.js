@@ -13,7 +13,7 @@ const chavesApi = [
 ];
 
 window.onload = function() {
-    selecionarChaveAPI();
+    SelecionarChave();
   };
 
 function SelecionarChave() {
@@ -50,7 +50,6 @@ function GerarTermo(comprimento = 5) {
     FazerPesquisa()
 }
 function FazerPesquisa() {
-    SelecionarChave()
     if (Cotas == false) {
         alert(`COTA EXCEDIDA! , TENTE NOVAMENTE!`);
         return;
