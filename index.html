@@ -1,16 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
+  <title>Vídeo Aleatório</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script src="randomvideo.js"></script>
 </head>
 <body>
-    <a href="Lyrics/index.html"><div class="link">Lyrics</div></a>
-    <a href="Açaí Pocket/index.html"><div class="link">Açaí Pocket</div></a>
-    <a href="Random Video/index.html"><div class="link">Random Video</div></a>
-    <a href="Login/index.html"><div class="link">Login</div></a>
+  <div id="body">
+    <h1>Vídeo Aleatório do YouTube</h1>
+    <label>
+      <label for="termo">Digite o termo de pesquisa:</label>
+      <input type="text" id="termo">
+      <div id="buttons">
+        <div><button onclick="FazerPesquisa()">Buscar Vídeo Aleatório</button></div>
+        <div><button onclick="GerarTermo()">Randomizar</button></div>
+      </div>
+    </label>
+  </div>
 </body>
 </html>
