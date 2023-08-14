@@ -4,7 +4,7 @@
   <title>Vídeo Aleatório</title>
   <link rel="icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="index.css">
-  <script src="randomvideo.js"></script>
+  <script src="index.js"></script>
 </head>
 <body>
   <div id="body">
@@ -13,9 +13,16 @@
       <label for="termo">Digite o termo de pesquisa:</label>
       <input type="text" id="termo">
       <div id="buttons">
-        <div><button onclick="buscarVideoAleatorio()" id="buscarButton1">Buscar Vídeo Aleatório</button></div>
-        <div><button onclick="gerarTermoAleatorio()" id="buscarButton2">Randomizar</button></div>
+        <div><button onclick="FazerPesquisa()">Buscar Vídeo Aleatório</button></div>
+        <div><button onclick="GerarTermo()">Randomizar</button></div>
       </div>
+      <div>
+        <label for="Sites">Site :</label>
+        <select id="Sites">
+          <option value=" "></option>
+          <option value="678bb9bcf15d64a87">Youtube</option>
+        </select>
+      </div>      
     </label>
   </div>
 </body>
