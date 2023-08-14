@@ -31,7 +31,6 @@ function ChecarCotas() {
             Cotas = true
         } else {
             Cotas = false
-            SelecionarChave()
         }
       })
       .catch(error => {console.error('Ocorreu um erro:', error)});
@@ -49,15 +48,17 @@ function GerarTermo(comprimento = 5) {
 function FazerPesquisa() {
     PegarCX()
     if (Cotas == false) {
-        alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
+        alert(`${ChaveApi} | COTA EXCEDIDA! , TENTE NOVAMENTE!`);
+        SelecionarChave()
         return;
     }
     if (cx == ' ') {
         alert('Escolha Um Site Para Pesquisar!');
         return;
     }
-    const termoPesquisa = document.getElementById('termo').value;
+    
     if (!termoPesquisa) {
+        termoPesquisa = document.getElementById('termo').value;
         alert('Por favor, digite um termo de pesquisa.');
     return;
     }
