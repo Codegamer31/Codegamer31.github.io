@@ -10,7 +10,6 @@ const chavesApi = [
 ];
 window.onload = function() {
     SelecionarChave();
-    PegarCX()
 }
 function SelecionarChave() {
     const indiceAleatorio = Math.floor(Math.random() * chavesApi.length);
@@ -48,6 +47,7 @@ function GerarTermo(comprimento = 5) {
     FazerPesquisa()
 }
 function FazerPesquisa() {
+    PegarCX()
     if (Cotas == false) {
         alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
         return;
