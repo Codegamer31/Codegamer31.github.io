@@ -11,6 +11,11 @@ const chavesApi = [
     "AIzaSyD4NNoIdduPCmWetBl6DC1Y_RMutDF7b54",
     "AIzaSyBsARrhcVhd0XYlERE8MjQEwckRIvFYW4w"
 ];
+
+window.onload = function() {
+    selecionarChaveAPI();
+  };
+
 function SelecionarChave() {
     const indiceAleatorio = Math.floor(Math.random() * chavesApi.length);
     ChecarCotas();
@@ -26,7 +31,7 @@ function ChecarCotas() {
             const erro = data.error.errors[0];
             if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
                 Cotas = false
-                selecionarChaveAPI()
+                SelecionarChave()
             } else {
                 Cotas = true
             }
