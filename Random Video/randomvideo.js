@@ -47,13 +47,11 @@ function GerarTermo() {
     termoGerado += caracteres.charAt(indiceAleatorio);
   }
   termoPesquisa = termoGerado;
-  FazerPesquisa();
+  Pesquisar();
 };
 function FazerPesquisa() {
   const chaveAPI = chaveSelecionada;
-  if (termoPesquisa == '') {
-    termoPesquisa = document.getElementById("termo").value.trim();    
-  }
+  termoPesquisa = document.getElementById("termo").value.trim();
   const maxResultado = 10000;
   if (document.getElementById("body").style.resize != 0) {
     alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
@@ -65,6 +63,9 @@ function FazerPesquisa() {
     alert("Por favor, digite um termo de pesquisa.");
     return;
   }
+  Pesquisar()
+}
+function Pesquisar() {
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=${maxResultado}`;
   fetch(url)
     .then(response => response.json())
@@ -73,7 +74,7 @@ function FazerPesquisa() {
         if (termoPesquisa == '') {
           GerarTermo()
         } else {
-          alert("Nenhum vídeo encontrado para o termo de pesquisa.");          
+          alert("Nenhum vídeo encontrado para o termo de pesquisa.");
         }
 
         return;
