@@ -52,7 +52,6 @@ function GerarTermo() {
 function FazerPesquisa() {
   const chaveAPI = chaveSelecionada;
   termoPesquisa = document.getElementById("termo").value.trim();
-  const maxResultado = 10000;
   if (document.getElementById("body").style.resize != 0) {
     alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
     document.getElementById("termo").value = '';
@@ -66,18 +65,13 @@ function FazerPesquisa() {
   Pesquisar()
 }
 function Pesquisar() {
+  const maxResultado = 10000;
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=${maxResultado}`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
       if (data.items.length === 0) {
-        if (termoPesquisa == '') {
-          GerarTermo()
-        } else {
-          alert("Nenhum vídeo encontrado para o termo de pesquisa.");
-        }
-
-        return;
+        alert("Nenhum Video Encontrado...")
       }
       const totalVideos = data.items.length;
       const indiceAleatorio = Math.floor(Math.random() * totalVideos);
