@@ -83,7 +83,7 @@ function Pesquisar() {
       const totalVideos = data.items.length;
       const indiceAleatorio = Math.floor(Math.random() * totalVideos);
       const videoID = data.items[indiceAleatorio].id.videoId;
-      window.location.href = `https://www.youtube.com/watch?v=${videoID}`;
+      window.open(`https://www.youtube.com/watch?v=${videoID}`,'_blank') ;
     })
     .catch(error => console.log(error));
 };
