@@ -67,7 +67,6 @@ function FazerPesquisa() {
   Pesquisar()
 }
 function Pesquisar() {
-  document.getElementById('termo').value = termoPesquisa
   const chaveAPI = chaveSelecionada;
   const maxResultado = 10000;
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=${maxResultado}`;
