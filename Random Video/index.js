@@ -41,7 +41,7 @@ function verificarCotasDisponiveis() {
 };
 function GerarTermo() {
   const caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]|:;"<>,.?/~ ';
-  const comprimentoTermo = Math.floor(Math.random() * 5) + 1;
+  const comprimentoTermo = Math.floor(Math.random() * 50) + 1;
   let termoGerado = "";
 
   for (let i = 0; i < comprimentoTermo; i++) {
