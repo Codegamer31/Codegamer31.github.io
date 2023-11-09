@@ -5,14 +5,8 @@ window.onload = function() {
   selecionarChaveAPI();
 };
 const chavesAPI = [
-  "AIzaSyDmV2gsUbBgVuZQf4wdhZptZ6Hsfqc66A4",
-  "AIzaSyCaHAb4Ekr8hCJ-NfNM6FsM3_reVZNp3J4",
-  "AIzaSyA2wasPNB7czVYW3SZmhw1SH0O_mx9PctE",
-  "AIzaSyAZJomfHzbr-icHe-BSqdUE8CoHDr0uPes",
-  "AIzaSyD4NNoIdduPCmWetBl6DC1Y_RMutDF7b54",
-  "AIzaSyBsARrhcVhd0XYlERE8MjQEwckRIvFYW4w",
-  "AIzaSyDEtuptvEWjJ9NPM-EOM8nRruY_-Ov18iM",
-  "AIzaSyCcL10-EIlq3T_TTeuqHbbYXp0jEqmf4NU"
+  "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0",
+  "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4"
 ];
 function selecionarChaveAPI() {
   const indiceAleatorio = Math.floor(Math.random() * chavesAPI.length);
