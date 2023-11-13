@@ -41,9 +41,7 @@ function GerarTermo() {
     const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
     termoGerado += caracteres.charAt(indiceAleatorio);
   }
-  termoPesquisa = termoGerado;
   document.getElementById("termo").value = termoGerado;
-  Pesquisar();
 };
 function FazerPesquisa() {
   
