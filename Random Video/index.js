@@ -6,7 +6,10 @@ window.onload = function() {
 };
 const chavesAPI = [
   "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0",
-  "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4"
+  "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4",
+  "AIzaSyCxB8ed_wAzRlJhod9PreCKERNGCPXx458",
+  "AIzaSyAtm3DYJI0hsWFeNxg2VUNWluedEjNybvw",
+  "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54",
 ];
 function selecionarChaveAPI() {
   const indiceAleatorio = Math.floor(Math.random() * chavesAPI.length);
@@ -23,19 +26,15 @@ function verificarCotasDisponiveis() {
       if (data.error && data.error.errors.length > 0) {
         const erro = data.error.errors[0];
         if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
-          document.getElementById('body').style.resize = 0
-          selecionarChaveAPI()
-        }
-        else{
-          document.getElementById('body').style.resize = 1
+          alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
         }
       }
     })
     .catch(error => console.log(error));
 };
 function GerarTermo() {
-  const caracteres = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]|:;"<>,.?/~ ';
-  const comprimentoTermo = Math.floor(Math.random() * 50) + 1;
+  const caracteres = document.getElementById("typetermo").value.trim();
+  const comprimentoTermo = Math.floor(Math.random() * document.getElementById("sizetermo").value.trim()) + 1;
   let termoGerado = "";
 
   for (let i = 0; i < comprimentoTermo; i++) {
@@ -43,17 +42,13 @@ function GerarTermo() {
     termoGerado += caracteres.charAt(indiceAleatorio);
   }
   termoPesquisa = termoGerado;
+  document.getElementById("termo").value = termoGerado;
   Pesquisar();
 };
 function FazerPesquisa() {
   
+  selecionarChaveAPI()
   termoPesquisa = document.getElementById("termo").value.trim();
-  if (document.getElementById("body").style.resize != 0) {
-    alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
-    document.getElementById("termo").value = '';
-    selecionarChaveAPI()
-    return;
-  }
   if (termoPesquisa == "") {
     alert("Por favor, digite um termo de pesquisa.");
     return;
