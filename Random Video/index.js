@@ -40,9 +40,6 @@ function verificarCotasDisponiveis() {
           cotaerro = 1
           FazerPesquisa()
         }
-        if(cotaerro == 0){
-          Pesquisar()
-        }
       }
     })
     .catch(error => console.log(error));
@@ -66,6 +63,7 @@ function FazerPesquisa() {
     alert("Por favor, digite um termo de pesquisa.");
     return;
   }
+  Pesquisar()
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
