@@ -10,6 +10,8 @@ const chavesAPI = [
   "AIzaSyCxB8ed_wAzRlJhod9PreCKERNGCPXx458",
   "AIzaSyAtm3DYJI0hsWFeNxg2VUNWluedEjNybvw",
   "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54",
+  "AIzaSyCV8VGd9vfQ8QP4eZpl_1bbPUTryVOx_UU",
+  "AIzaSyATUS8Zu56dmo4elwAt3uSGRlv0_8RbHpU",
 ];
 function selecionarChaveAPI() {
   const indiceAleatorio = Math.floor(Math.random() * chavesAPI.length);
@@ -26,7 +28,7 @@ function verificarCotasDisponiveis() {
       if (data.error && data.error.errors.length > 0) {
         const erro = data.error.errors[0];
         if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
-          alert('COTAS EXCEDIDAS! , TENTE NOVAMENTE!');
+          selecionarChaveAPI()
         }
       }
     })
