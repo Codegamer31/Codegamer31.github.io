@@ -3,6 +3,7 @@ let chaveSelecionada = "";
 let indiceAleatorio = 0
 let cotaerro = 0
 
+
 const chavesAPI = [
   "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0",
   "AIzaSyCxB8ed_wAzRlJhod9PreCKERNGCPXx458",
@@ -13,12 +14,14 @@ const chavesAPI = [
   "AIzaSyBS287UdWkyR1Sav88i399YW8GDV3_TuNc",
   "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4",
 ];
+let limite = (chavesAPI.length - 1)
+
 function selecionarChaveAPI() {
   if(cotaerro == 1){
     indiceAleatorio+=1
     cotaerro = 0
   }
-  if(indiceAleatorio == 7){
+  if(indiceAleatorio >= limite){
     alert('COTAS ENCERRADAS')
     indiceAleatorio = 0
   }
