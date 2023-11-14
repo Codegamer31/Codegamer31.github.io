@@ -1,25 +1,34 @@
 let termoPesquisa = "";
 let chaveSelecionada = "";
+let indiceAleatorio = 0
+let cotaerro = 0
 
-window.onload = function() {
-  selecionarChaveAPI();
-};
 const chavesAPI = [
   "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0",
-  "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4",
   "AIzaSyCxB8ed_wAzRlJhod9PreCKERNGCPXx458",
   "AIzaSyAtm3DYJI0hsWFeNxg2VUNWluedEjNybvw",
   "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54",
   "AIzaSyCV8VGd9vfQ8QP4eZpl_1bbPUTryVOx_UU",
   "AIzaSyATUS8Zu56dmo4elwAt3uSGRlv0_8RbHpU",
+  "AIzaSyBS287UdWkyR1Sav88i399YW8GDV3_TuNc",
+  "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4",
 ];
 function selecionarChaveAPI() {
-  const indiceAleatorio = Math.floor(Math.random() * chavesAPI.length);
+  if(cotaerro == 1){
+    indiceAleatorio+=1
+    cotaerro = 0
+  }
+  if(indiceAleatorio == 7){
+    alert('COTAS ENCERRADAS')
+    indiceAleatorio = 0
+  }
   chaveSelecionada = chavesAPI[indiceAleatorio];
   verificarCotasDisponiveis()
 };
 function verificarCotasDisponiveis() {
+
   const chaveAPI = chaveSelecionada;
+  console.log(chaveAPI)  
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&part=id&maxResults=1`;
 
   fetch(url)
@@ -28,7 +37,11 @@ function verificarCotasDisponiveis() {
       if (data.error && data.error.errors.length > 0) {
         const erro = data.error.errors[0];
         if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
-          selecionarChaveAPI()
+          cotaerro = 1
+          FazerPesquisa()
+        }
+        if(cotaerro == 0){
+          Pesquisar()
         }
       }
     })
@@ -53,7 +66,6 @@ function FazerPesquisa() {
     alert("Por favor, digite um termo de pesquisa.");
     return;
   }
-  Pesquisar()
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
@@ -62,16 +74,14 @@ function Pesquisar() {
   fetch(url)
     .then(response => response.json())
     .then(data => {
-      if (data.items.length === 0) {
-        if (termoPesquisa == '') {
+      if (data.items.length == 0) {
           alert("Nenhum vídeo encontrado para o termo de pesquisa.");
           return;
         }
-      }
       const totalVideos = data.items.length;
       const indiceAleatorio = Math.floor(Math.random() * totalVideos);
       const videoID = data.items[indiceAleatorio].id.videoId;
       window.open(`https://www.youtube.com/watch?v=${videoID}`,'_blank') ;
     })
-    .catch(error => console.log(error));
-};
+    .catch(error => console.log(error))
+  };
