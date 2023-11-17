@@ -85,7 +85,7 @@ function FazerPesquisa() {
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
-  const maxResultado = 10000;
+  const maxResultado = document.getElementById("maxpesq").value.trim();
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=${maxResultado}`;
   fetch(url)
     .then(response => response.json())
