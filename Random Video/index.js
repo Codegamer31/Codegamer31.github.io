@@ -2,7 +2,20 @@ let termoPesquisa = "";
 let chaveSelecionada = "";
 let indiceAleatorio = 0
 let cotaerro = 0
+let conf = 0
 
+function option() {
+  if(conf == 0){
+    document.getElementById('body').style.display = 'flex'
+    document.getElementById('option').style.display = 'none'
+    conf = 1
+  }
+  else{
+    document.getElementById('body').style.display = 'none'
+    document.getElementById('option').style.display = 'flex'
+    conf = 0
+  }
+}
 
 const chavesAPI = [
   "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0",
@@ -47,7 +60,7 @@ function verificarCotasDisponiveis() {
     })
     .catch(error => console.log(error));
 };
-function GerarTermo() {
+function Aleatorio() {
   const caracteres = document.getElementById("typetermo").value.trim();
   const comprimentoTermo = Math.floor(Math.random() * document.getElementById("sizetermo").value.trim()) + 1;
   let termoGerado = "";
@@ -56,17 +69,19 @@ function GerarTermo() {
     const indiceAleatorio = Math.floor(Math.random() * caracteres.length);
     termoGerado += caracteres.charAt(indiceAleatorio);
   }
-  document.getElementById("termo").value = termoGerado;
+  Pesquisar()
 };
 function FazerPesquisa() {
   
   selecionarChaveAPI()
   termoPesquisa = document.getElementById("termo").value.trim();
   if (termoPesquisa == "") {
-    alert("Por favor, digite um termo de pesquisa.");
-    return;
+    Aleatorio()
   }
-  Pesquisar()
+  else{
+    Pesquisar()
+  }
+
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
