@@ -1,0 +1,25 @@
+body{margin: 0;height: 100vh;width: 100vw;}
+input{margin: 5px;color: white;background: #000000;border: 1px solid #ffffff;text-align: center;}
+
+.typing-animation {font-family: Arial, sans-serif;font-size: 18px;padding: 20px;display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;}
+.text{white-space-collapse: preserve-breaks;text-align: center;display: block;float: left;}
+
+#play{background: black;color: white;height: 100%;width: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;}
+.buttons{background: black;color: white;cursor: pointer;border: none;font-size: 30px;height: 50px;width: 250px;}
+.buttons:hover{background: white;color: black;}
+.buttons:active{background: gray;color: white;}
+
+#menu{display: flex;flex-direction: column;align-items: center;flex-wrap: nowrap;justify-content: center;}
+
+#start{display: none;}
+#NOME{opacity: 0;}
+
+#load{display: none;}
+
+#game{display: none;}
+#animation3{position: absolute;top: 0;left: 0;}
+#text3{text-align: left;}
+.janela-pop-up {display: none;position: absolute;background-color: #f9f9f9;padding: 10px;border: 1px solid #ddd;background: #000000;color: #ddd;top: 50px;right: 10px;}
+.options{position: absolute;left: 20px;flex-direction: column;flex-wrap: nowrap;justify-content: space-around;font-size: 30px;top: 230px;opacity: 0;display: none;}
+
+@keyframes pisc {0%, 100% {opacity: 0;}100% {opacity: 1;}}

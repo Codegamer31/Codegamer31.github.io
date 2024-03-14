@@ -1,1 +1,54 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPG</title>
+    
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div id="play">
+        <div id="menu">
+            <button class="buttons" id="START" onclick="START()">START</button>
+            <button class="buttons" id="CONTINUE" onclick="LOAD()">CONTINUE</button>
+            <button class="buttons" id="EXIT" onclick="EXIT()">EXIT</button>
+        </div>
+        <div id="start">
+            <div class="typing-animation" id="animation1">
+                <label>
+                    <span class="text" id="text1"></span>
+                </label>
+                <input id="NOME" type="text">
+            </div>
+        </div>
+        <div id="load">
+            <div class="typing-animation" id="animation2">
+                <label>
+                    <span class="text" id="text2"></span>
+                </label>
+            </div>
+        </div>
+        <div id="game">
+            <div class="typing-animation" id="animation3">
+                <label>
+                    <span class="text" id="text3"></span>
+                </label>
+            </div>
+            <div id="janela-pop-up" class="janela-pop-up">
+                HPX = Vida Atual / Vida Maxima = Porcentagem<br>
+                ATK = Dano Maximo<br>
+                DEF = Defesa Maxima<br>
+                CRT = Chance De Critico<br>
+                ATS = Chance De Acerto<br>
+                DVI = Chance De Desviar
+            </div>
+            <div class="options" id="options">
+                <button id="prcr" class="buttons">Procurar...</button>
+                <button id="inv" class="buttons">Inventario</button>
+            </div>
+        </div>
+    </div>
+<script src="index.js"></script>
+</body>
+</html>
