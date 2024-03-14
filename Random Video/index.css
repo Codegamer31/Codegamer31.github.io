@@ -1,5 +1,5 @@
 button:active{background: gray;font-size: 25px;width: 275px;}
-span{margin: 10px 0 0 0;height: 18.4px;}
+a{margin: 10px 0 0 0;height: 18.4px;color: white;text-decoration: none;}
 input{margin: 25px 0 0 0;font-size: 30px;}
 label{font-size: 20px;}
 

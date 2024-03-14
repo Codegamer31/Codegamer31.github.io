@@ -99,6 +99,7 @@ function Pesquisar() {
       iframe.allowfullscreen = true;
       const URLID = document.getElementById("urlID")
       URLID.textContent = "https://www.youtube.com/watch?v=" + videoID
+      URLID.href = "https://www.youtube.com/watch?v=" + videoID
     })
     .catch(error => console.log(error))
 
