@@ -4,23 +4,20 @@
   <title>Vídeo Aleatório</title>
   <link rel="icon" href="favicon.png" type="image/x-icon">
   <link rel="stylesheet" type="text/css" href="index.css">
-  <script src="index.js"></script>
 </head>
 <body>
-  <div><button onclick="option()" id="options"></button></div>   
+  <button onclick="option()" id="options"></button>
   <div id="body">
- 
-    <h1>Vídeo Aleatório do YouTube</h1>
-    <label>
-      <label for="termo">Digite o Termo De Pesquisa:
-      <input type="text" id="termo">        
-      </label>
-      <div style="float: right;">
-        <div id="buttons">
-          <div><button onclick="FazerPesquisa()">Buscar Vídeo Aleatório</button></div>
-        </div>
+    <div id="body2">
+      <div id="part1">
+        <h1>Vídeo Aleatório</h1>
+        <button onclick="FazerPesquisa()">Buscar Vídeo</button> 
       </div>
-    </label>
+      <div id="part2">
+        <iframe id="iframe" width="800" height="400"></iframe>
+        <span id="urlID"></span>        
+      </div>
+    </div>
   </div>
     <div id="option">
       <h1>Configurações</h1>
@@ -28,10 +25,9 @@
         <label for="sizetermo">Tamanho Maximo Do Termo Aleatório:</label>
         <input type="text" id="sizetermo" value="10">
         <label for="typetermo">Letras Usadas Para o Termo Aleatório:</label>
-        <input type="text" id="typetermo" value="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-={}[]|:;'<>,.?/~ ">
-        <label for="maxpesq">Resultados Maximos:</label>
-        <input type="text" id="maxpesq" value="10000">   
+        <input type="text" id="typetermo" value="abcdefghijklmnopqrstuvwxyz0123456789!@#$%&?/">
       </div>
     </div>
 </body>
+<script src="index.js"></script>
 </html>

@@ -26,6 +26,7 @@ const chavesAPI = [
   "AIzaSyATUS8Zu56dmo4elwAt3uSGRlv0_8RbHpU",
   "AIzaSyBS287UdWkyR1Sav88i399YW8GDV3_TuNc",
   "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4",
+  "AIzaSyCrljlvssTIPsdp4yfWV3nMAhgq6qIEq1M",
 ];
 let limite = (chavesAPI.length - 1)
 
@@ -34,12 +35,14 @@ function selecionarChaveAPI() {
     indiceAleatorio+=1
     cotaerro = 0
   }
-  if(indiceAleatorio >= limite){
-    alert('COTAS ENCERRADAS')
-    indiceAleatorio = 0
+  if(indiceAleatorio <= limite){
+    chaveSelecionada = chavesAPI[indiceAleatorio];
+    verificarCotasDisponiveis()
   }
-  chaveSelecionada = chavesAPI[indiceAleatorio];
-  verificarCotasDisponiveis()
+  if(indiceAleatorio > limite){
+    alert('COTAS ENCERRADAS')
+    indiceAleatorio = 0    
+  }
 };
 function verificarCotasDisponiveis() {
 
@@ -54,7 +57,7 @@ function verificarCotasDisponiveis() {
         const erro = data.error.errors[0];
         if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
           cotaerro = 1
-          FazerPesquisa()
+          selecionarChaveAPI()
         }
       }
     })
@@ -75,30 +78,30 @@ function Aleatorio() {
 function FazerPesquisa() {
   
   selecionarChaveAPI()
-  termoPesquisa = document.getElementById("termo").value.trim();
-  if (termoPesquisa == "") {
-    Aleatorio()
-  }
-  else{
-    Pesquisar()
-  }
+  Aleatorio()
 
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
-  const maxResultado = document.getElementById("maxpesq").value.trim();
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=${maxResultado}`;
+  const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=50`;
   fetch(url)
     .then(response => response.json())
-    .then(data => {
-      if (data.items.length == 0) {
-          alert("Nenhum vídeo encontrado para o termo de pesquisa.");
-          return;
-        }
+    .then(data => {if(data.items.length == 0){alert("Nenhum Vídeo Encontrado Para o Termo Aleatório.");return;}
       const totalVideos = data.items.length;
       const indiceAleatorio = Math.floor(Math.random() * totalVideos);
       const videoID = data.items[indiceAleatorio].id.videoId;
-      window.open(`https://www.youtube.com/watch?v=${videoID}`,'_blank') ;
+      // Crie o elemento iframe dinamicamente
+      var iframe = document.getElementById("iframe");
+      iframe.width = "800";
+      iframe.height = "400";
+      iframe.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1";
+      iframe.frameborder = "0";
+      iframe.allowfullscreen = true;
+      const URLID = document.getElementById("urlID")
+      URLID.textContent = "https://www.youtube.com/watch?v=" + videoID
     })
     .catch(error => console.log(error))
+
+
   };
+
