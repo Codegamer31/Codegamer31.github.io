@@ -65,37 +65,38 @@ function FazerPesquisa() {
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
-  console.log(chaveAPI)  
+  console.log(chaveAPI);
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=50`;
+  
   fetch(url)
     .then(response => response.json())
     .then(data => {
       if (data.error && data.error.errors.length > 0) {
         const erro = data.error.errors[0];
         if (erro.reason === "forbidden" || erro.reason === "quotaExceeded") {
-          cotaerro = 1
-          selecionarChaveAPI()
+          cotaerro = 1;
+          selecionarChaveAPI();
         }
+      } else {
+        if (data.items.length == 0) {
+          alert("Nenhum Vídeo Encontrado Para o Termo Aleatório.");
+          return;
+        }
+        const totalVideos = data.items.length;
+        const indiceAleatorio = Math.floor(Math.random() * totalVideos);
+        const videoID = data.items[indiceAleatorio].id.videoId;
+        
+        var iframe = document.getElementById("iframe");
+        iframe.width = "800";
+        iframe.height = "400";
+        iframe.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1";
+        iframe.frameborder = "0";
+        iframe.allowfullscreen = true;
+        
+        const URLID = document.getElementById("urlID");
+        URLID.textContent = "https://www.youtube.com/watch?v=" + videoID;
+        URLID.href = "https://www.youtube.com/watch?v=" + videoID;
       }
     })
-    .then(response => response.json())
-    .then(data => {if(data.items.length == 0){alert("Nenhum Vídeo Encontrado Para o Termo Aleatório.");return;}
-      const totalVideos = data.items.length;
-      const indiceAleatorio = Math.floor(Math.random() * totalVideos);
-      const videoID = data.items[indiceAleatorio].id.videoId;
-      // Crie o elemento iframe dinamicamente
-      var iframe = document.getElementById("iframe");
-      iframe.width = "800";
-      iframe.height = "400";
-      iframe.src = "https://www.youtube.com/embed/" + videoID + "?autoplay=1";
-      iframe.frameborder = "0";
-      iframe.allowfullscreen = true;
-      const URLID = document.getElementById("urlID")
-      URLID.textContent = "https://www.youtube.com/watch?v=" + videoID
-      URLID.href = "https://www.youtube.com/watch?v=" + videoID
-    })
-    .catch(error => console.log(error))
-
-
-  };
-
+    .catch(error => console.log(error));
+}
