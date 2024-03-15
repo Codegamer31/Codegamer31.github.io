@@ -1,1 +1,33 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vídeo Aleatório</title>
+  <link rel="icon" href="favicon.png" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <button onclick="option()" id="options"></button>
+  <div id="body">
+    <div id="body2">
+      <div id="part1">
+        <h1>Vídeo Aleatório</h1>
+        <button onclick="FazerPesquisa()">Buscar Vídeo</button> 
+      </div>
+      <div id="part2">
+        <iframe id="iframe" width="800" height="400"></iframe>
+        <a id="urlID" href="" target="_blank"></a>        
+      </div>
+    </div>
+  </div>
+    <div id="option">
+      <h1>Configurações</h1>
+      <div>
+        <label for="sizetermo">Tamanho Maximo Do Termo Aleatório:</label>
+        <input type="text" id="sizetermo" value="10">
+        <label for="typetermo">Letras Usadas Para o Termo Aleatório:</label>
+        <input type="text" id="typetermo" value="abcdefghijklmnopqrstuvwxyz0123456789!@#$%&?/">
+      </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
