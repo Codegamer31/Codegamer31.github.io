@@ -18,8 +18,16 @@ function option() {
 }
 
 const chavesAPI = [
-  "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54", //codegamer264@gmail.com (protegido)
-  "AIzaSyD3VUN73mfx0_ZcJM35wz7G_EkOzMAmf-w", //isabellaalvescitadin07@gmail.com (Protegido)
+  "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0", //prototipo01109@gmail.com               (protegido)
+  "AIzaSyCxB8ed_wAzRlJhod9PreCKERNGCPXx458", //codegamer313229@gmail.com              (protegido)
+  "AIzaSyAtm3DYJI0hsWFeNxg2VUNWluedEjNybvw", //isabellaalvescitadin01@gmail.com       (protegido)
+  "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54", //codegamer264@gmail.com                 (protegido)
+  "AIzaSyCV8VGd9vfQ8QP4eZpl_1bbPUTryVOx_UU", //                                       (exposto)
+  "AIzaSyATUS8Zu56dmo4elwAt3uSGRlv0_8RbHpU", //                                       (exposto)
+  "AIzaSyBS287UdWkyR1Sav88i399YW8GDV3_TuNc", //                                       (exposto)
+//"AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4", //                                       (ERRO)
+  "AIzaSyCrljlvssTIPsdp4yfWV3nMAhgq6qIEq1M", //                                       (exposto)
+  "AIzaSyD3VUN73mfx0_ZcJM35wz7G_EkOzMAmf-w", //isabellaalvescitadin07@gmail.com       (Protegido)
 ];
 let limite = (chavesAPI.length - 1)
 
@@ -30,32 +38,13 @@ function selecionarChaveAPI() {
   }
   if(indiceAleatorio <= limite){
     chaveSelecionada = chavesAPI[indiceAleatorio];
-    verificarCotasDisponiveis()
   }
   if(indiceAleatorio > limite){
     alert('COTAS ENCERRADAS')
     indiceAleatorio = 0    
   }
 };
-function verificarCotasDisponiveis() {
 
-  const chaveAPI = chaveSelecionada;
-  console.log(chaveAPI)  
-  const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&part=id&maxResults=1`;
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (data.error && data.error.errors.length > 0) {
-        const erro = data.error.errors[0];
-        if (erro.reason === "dailyLimitExceeded" || erro.reason === "quotaExceeded") {
-          cotaerro = 1
-          selecionarChaveAPI()
-        }
-      }
-    })
-    .catch(error => console.log(error));
-};
 function Aleatorio() {
   const caracteres = document.getElementById("typetermo").value.trim();
   const comprimentoTermo = Math.floor(Math.random() * document.getElementById("sizetermo").value.trim()) + 1;
@@ -76,7 +65,20 @@ function FazerPesquisa() {
 }
 function Pesquisar() {
   const chaveAPI = chaveSelecionada;
+  console.log(chaveAPI)  
   const url = `https://www.googleapis.com/youtube/v3/search?key=${chaveAPI}&q=${termoPesquisa}&maxResults=50`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      if (data.error && data.error.errors.length > 0) {
+        const erro = data.error.errors[0];
+        if (erro.reason === "forbidden" || erro.reason === "quotaExceeded") {
+          cotaerro = 1
+          selecionarChaveAPI()
+        }
+      }
+    })
+    .catch(error => console.log(error));
   fetch(url)
     .then(response => response.json())
     .then(data => {if(data.items.length == 0){alert("Nenhum Vídeo Encontrado Para o Termo Aleatório.");return;}
