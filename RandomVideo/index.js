@@ -38,6 +38,7 @@ function selecionarChaveAPI() {
   }
   if(indiceAleatorio <= limite){
     chaveSelecionada = chavesAPI[indiceAleatorio];
+    Aleatorio()
   }
   if(indiceAleatorio > limite){
     alert('COTAS ENCERRADAS')
@@ -60,7 +61,6 @@ function Aleatorio() {
 function FazerPesquisa() {
   
   selecionarChaveAPI()
-  Aleatorio()
 
 }
 function Pesquisar() {
@@ -78,8 +78,6 @@ function Pesquisar() {
         }
       }
     })
-    .catch(error => console.log(error));
-  fetch(url)
     .then(response => response.json())
     .then(data => {if(data.items.length == 0){alert("Nenhum Vídeo Encontrado Para o Termo Aleatório.");return;}
       const totalVideos = data.items.length;
