@@ -18,21 +18,14 @@ function option() {
 }
 
 const chavesAPI = [
-  "AIzaSyC4scb9jAYAlrhau_6RtKeBsdJC3kFFZJ0",
-  "AIzaSyCxB8ed_wAzRlJhod9PreCKERNGCPXx458",
-  "AIzaSyAtm3DYJI0hsWFeNxg2VUNWluedEjNybvw",
-  "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54",
-  "AIzaSyCV8VGd9vfQ8QP4eZpl_1bbPUTryVOx_UU",
-  "AIzaSyATUS8Zu56dmo4elwAt3uSGRlv0_8RbHpU",
-  "AIzaSyBS287UdWkyR1Sav88i399YW8GDV3_TuNc",
-  "AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4",
-  "AIzaSyCrljlvssTIPsdp4yfWV3nMAhgq6qIEq1M",
+  "AIzaSyA6awW-hM6Bqahmpjq-Z-ZI4utUB62-p54", //codegamer264@gmail.com (protegido)
+  "AIzaSyD3VUN73mfx0_ZcJM35wz7G_EkOzMAmf-w", //isabellaalvescitadin07@gmail.com (Protegido)
 ];
 let limite = (chavesAPI.length - 1)
 
 function selecionarChaveAPI() {
   if(cotaerro == 1){
-    indiceAleatorio+=1
+    indiceAleatorio += 1
     cotaerro = 0
   }
   if(indiceAleatorio <= limite){
