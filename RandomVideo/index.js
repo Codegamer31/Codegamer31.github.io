@@ -25,7 +25,6 @@ const chavesAPI = [
   "AIzaSyCV8VGd9vfQ8QP4eZpl_1bbPUTryVOx_UU", //                                       (exposto)
   "AIzaSyATUS8Zu56dmo4elwAt3uSGRlv0_8RbHpU", //                                       (exposto)
   "AIzaSyBS287UdWkyR1Sav88i399YW8GDV3_TuNc", //                                       (exposto)
-//"AIzaSyAsq7HG4y0ciBcKi0qS7RHoTnYI6iuQzd4", //                                       (ERRO)
   "AIzaSyCrljlvssTIPsdp4yfWV3nMAhgq6qIEq1M", //                                       (exposto)
   "AIzaSyD3VUN73mfx0_ZcJM35wz7G_EkOzMAmf-w", //isabellaalvescitadin07@gmail.com       (Protegido)
 ];
