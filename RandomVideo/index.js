@@ -84,7 +84,7 @@ function Pesquisar() {
         const totalVideos = data.items.length;
         const indiceAleatorio = Math.floor(Math.random() * totalVideos);
         const videoID = data.items[indiceAleatorio].id.videoId;
-        if (videoID === "undefined") {
+        if (videoID === "") {
           Pesquisar()
         } else {
           var iframe = document.getElementById("iframe");
