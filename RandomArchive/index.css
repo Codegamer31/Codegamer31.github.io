@@ -1,4 +1,4 @@
-body{height: 100vh;width: 100vw;margin: 0;background-image:("images/images (8).jpeg");color: white;display: flex;align-items: center;justify-content: center;align-content: center;flex-direction: column;}
+body{height: 100vh;width: 100vw;margin: 0;background-image:url("images/images.jpeg");background-repeat: no-repeat;background-size: 100vw 100vh;background-position:center;color: white;display: flex;align-items: center;justify-content: center;align-content: center;flex-direction: column;}
 .body{}
 .st{width: 100px;height: 113px;float: left;border: 1px solid red;margin: 5px}
 .sp{width: 100px;height: 113px;float: left;border: 1px solid blue;margin: 5px}
