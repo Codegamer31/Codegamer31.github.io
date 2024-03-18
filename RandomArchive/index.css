@@ -1,15 +1,22 @@
-body{height: 100vh;width: 100vw;margin: 0;background-image:url("images/images.jpeg");background-repeat: no-repeat;background-size: 100vw 100vh;background-position:center;color: white;display: flex;align-items: center;justify-content: center;align-content: center;flex-direction: column;}
-.body{}
+body{height: 100vh;width: 100vw;margin: 0;background-image:url("images/background.png");background-position:center;color: white;display: flex;align-items: center;justify-content: center;flex-direction: column;background-size:cover;overflow: hidden;}
+.divs1{}
 .st{width: 100px;height: 113px;float: left;border: 1px solid red;margin: 5px}
 .sp{width: 100px;height: 113px;float: left;border: 1px solid blue;margin: 5px}
 
-#geral{display: flex;flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;}
-#body1 img{width: 192.5px;padding: 0px 0 25px;height: 87.5px}
-img{width: 100px;height: 113px;}
+#geral{flex-direction: column;flex-wrap: nowrap;justify-content: center;align-items: center;padding: 30px;background-color:blue;background-color: #000000d1;border-radius: 10px;}
+#geral img{width: 100%;height: 100%;}
+#div1 img{width: 385px;padding: 0px 0 25px;height: 175px}
+#geral #striker0{width: 20%;height: 100vh;position: absolute;left: 0}
+#geral #special0{width: 20%;height: 100vh;position: absolute;right: 0}
 
-@media only screen and (min-device-height: 1000px){
-  #body1 img{width: 385px;padding: 0px 0 50px;height: 175px}
-  img{width: 200px;height: 226px}
-  .st{width: 200px;height: 226px}
-  .sp{width: 200px;height: 226px}
-}
+#strikers{width: 80%;overflow: auto;margin: 10px;padding: 30px;background-color: #000000d1;border-radius: 10px;}
+#strikers #icons1{width: 100%;filter: grayscale(0);}
+#strikers .icons1{width: 10%;margin: 5px;cursor: pointer;border: 2px solid white}
+#strikers #formation1{width: 5%;height: 100vh;position: absolute;right: 0;top: 0}
+#strikers #special1{width: 5%;height: 100vh;position: absolute;left: 0;top: 0}
+
+#specials{width: 80%;overflow: auto;margin: 10px;padding: 30px;background-color: #000000d1;border-radius: 10px;}
+#specials #icons2{width: 100%;filter: grayscale(0);}
+#specials .icons2{width: 10%;margin: 5px;cursor: pointer;border: 2px solid white}
+#specials #formation2{width: 5%;height: 100vh;position: absolute;left: 0;top: 0}
+#specials #striker2{width: 5%;height: 100vh;position: absolute;right: 0;top: 0}

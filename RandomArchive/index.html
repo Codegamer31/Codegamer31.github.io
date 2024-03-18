@@ -6,20 +6,28 @@
 </head>
     <body>
         <div id="geral">
-            <div id="body1" class="body">
-                <img src="images/Blue_Archive_EN_logo.svg.png" onclick="call_all()">
+            <div id="striker0" onclick="imgstriker()"></div>
+            <div id="div1" class="divs1">
+                <img src="images/Blue_Archive_Logo.png" onclick="call_all()" draggable="false">
             </div>
-            <div id="body2" class="body">
-                <div class="st" onclick="call_st1()"><img id="st1"></div>
-                <div class="st" onclick="call_st2()"><img id="st2" ></div>
-                <div class="st" onclick="call_st3()"><img id="st3" ></div>
-                <div class="st" onclick="call_st4()"><img id="st4" ></div>
+            <div id="div2" class="divs1">
+                <div class="st" onclick="call_st1()"><img id="st1" draggable="false"></div>
+                <div class="st" onclick="call_st2()"><img id="st2" draggable="false"></div>
+                <div class="st" onclick="call_st3()"><img id="st3" draggable="false"></div>
+                <div class="st" onclick="call_st4()"><img id="st4" draggable="false"></div>
             </div>
-            <div id="body3" class="body">
-                <div class="sp" onclick="call_sp1()"><img id="sp1" ></div>
-                <div class="sp" onclick="call_sp2()"><img id="sp2" ></div>
-            </div>            
+            <div id="div3" class="divs1">
+                <div class="sp" onclick="call_sp1()"><img id="sp1" draggable="false"></div>
+                <div class="sp" onclick="call_sp2()"><img id="sp2" draggable="false"></div>
+            </div>
+            <div id="special0" onclick="imgspecial()"></div>
         </div>
-<script src="index.js"></script>
+        <div id="strikers">
+            <div id="formation1" onclick="formation()"></div>
+        </div>
+        <div id="specials">
+            <div id="formation2" onclick="formation()"></div>
+        </div>
+<script src="index.js" onload="START()"></script>
     </body>
 </html>
