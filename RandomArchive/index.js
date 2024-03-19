@@ -30,6 +30,7 @@ function START() {
     sp_del = [dadosUsuario.sp.split(",")]
     st_del = st_del[0]
     sp_del = sp_del[0]
+    call_all()
 }
 var st_del = [0]
 var sp_del = [0]
@@ -45,7 +46,7 @@ var sp2 = document.getElementById("sp2") ; var sp2_img = 0
 var strikerdiv = 0
 var specialdiv = 0
 
-function call_striker() {return Math.floor(Math.random()*(105-0)+0)} ; function call_special() {return Math.floor(Math.random()*(50-0)+0)}
+function call_striker() {return Math.floor(Math.random()*(119-0)+0)} ; function call_special() {return Math.floor(Math.random()*(56-0)+0)}
 
 st1.src = "striker/" + st1_img + ".webp"
 st2.src = "striker/" + st2_img + ".webp"
@@ -178,14 +179,6 @@ function call_all() {
     sp2.src = "special/" + 0 + ".webp" ; call_sp2()
 }
 
-call_st1()
-call_st2()
-call_st3()
-call_st4()
-
-call_sp1()
-call_sp2()
-
 var imgst = 0
 var imgsp = 0
 
@@ -196,7 +189,7 @@ function imgstriker() {
     var divAbaixo = document.getElementById("formation1")
     icons1.id = "icons1"
     divPai.insertBefore(icons1,divAbaixo)
-    while (imgst < 105) {
+    while (imgst < 119) {
         imgst += 1
         const img = document.createElement("img");
         img.src = "striker/" + imgst + ".webp"
@@ -262,7 +255,7 @@ function imgspecial() {
     var divAbaixo = document.getElementById("formation2")
     icons2.id = "icons2"
     divPai.insertBefore(icons2,divAbaixo)
-    while (imgsp < 50) {
+    while (imgsp < 56) {
         imgsp += 1
         const img = document.createElement("img");
         img.src = "special/" + imgsp + ".webp"
