@@ -46,7 +46,7 @@ var sp2 = document.getElementById("sp2") ; var sp2_img = 0
 var strikerdiv = 0
 var specialdiv = 0
 
-function call_striker() {return Math.floor(Math.random()*(119-0)+0)} ; function call_special() {return Math.floor(Math.random()*(56-0)+0)}
+function call_striker() {return Math.floor(Math.random()*(133-0)+0)} ; function call_special() {return Math.floor(Math.random()*(61-0)+0)} // Trocar Esses Números Para o Caso No Aumento de Personagens
 
 st1.src = "striker/" + st1_img + ".webp"
 st2.src = "striker/" + st2_img + ".webp"
@@ -189,7 +189,7 @@ function imgstriker() {
     var divAbaixo = document.getElementById("formation1")
     icons1.id = "icons1"
     divPai.insertBefore(icons1,divAbaixo)
-    while (imgst < 119) {
+    while (imgst < 133) { // Trocar Esses Números Para o Caso No Aumento de Personagens
         imgst += 1
         const img = document.createElement("img");
         img.src = "striker/" + imgst + ".webp"
@@ -255,7 +255,7 @@ function imgspecial() {
     var divAbaixo = document.getElementById("formation2")
     icons2.id = "icons2"
     divPai.insertBefore(icons2,divAbaixo)
-    while (imgsp < 56) {
+    while (imgsp < 61) { // Trocar Esses Números Para o Caso No Aumento de Personagens
         imgsp += 1
         const img = document.createElement("img");
         img.src = "special/" + imgsp + ".webp"
